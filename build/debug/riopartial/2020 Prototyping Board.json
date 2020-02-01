@@ -5,12 +5,5 @@
     "debugfile": "frcJava_roborio.debugconfig",
     "project": "2020 Prototyping Board",
     "language": "java"
-  },
-  {
-    "artifact": "frcJava (in project PrototypingBoard)",
-    "target": "roborio",
-    "debugfile": "frcJava_roborio.debugconfig",
-    "project": "PrototypingBoard",
-    "language": "java"
   }
 ]
