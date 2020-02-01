@@ -15,15 +15,15 @@ import edu.wpi.first.wpilibj.Servo;
 
 public class PrototypingSubsystem {
     // Motors
-    TalonSRX protoMotor1;
-    VictorSPX protoMotor2;
+    VictorSPX protoMotor1;
+    TalonSRX protoMotor2;
     VictorSPX protoMotor3;
     //Servo
     Servo protoServo;
 
     public PrototypingSubsystem() {
-        this.protoMotor1 = new TalonSRX(0);
-        this.protoMotor2 = new VictorSPX(1);
+        this.protoMotor1 = new VictorSPX(0);
+        this.protoMotor2 = new TalonSRX(1);
         this.protoMotor3 = new VictorSPX(2);
         this.protoServo = new Servo(0);
     }
