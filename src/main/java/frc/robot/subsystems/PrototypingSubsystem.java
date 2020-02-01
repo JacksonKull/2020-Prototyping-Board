@@ -28,6 +28,10 @@ public class PrototypingSubsystem {
         this.protoServo = new Servo(0);
     }
 
+    public void setServoAnalog(double power){
+        this.protoServo.set(power);
+    }
+
     public void setprotoMotor1(double power) {
         this.protoMotor1.set(ControlMode.PercentOutput, power);
     }

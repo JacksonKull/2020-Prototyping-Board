@@ -50,13 +50,15 @@ public class Robot extends TimedRobot {
 
     if(SmartDashboard.getBoolean("Controller Mode", false)){
       int selectedMotor = (int) SmartDashboard.getNumber("Manual Motor Selector", 0);
-      double manualMotorPower = this.controller.getRightTriggerAnalog();
+      double manualMotorPower = -this.controller.getLeftStickY();
       if(selectedMotor == 1){
         this.protoSystem.setprotoMotor1(manualMotorPower);
       }else if(selectedMotor == 2){
         this.protoSystem.setprotoMotor2(manualMotorPower);
       }else if(selectedMotor == 3){
         this.protoSystem.setprotoMotor3(manualMotorPower);
+      }else if(selectedMotor == 4){
+        this.protoSystem.setServoAnalog(manualMotorPower);
       }
     }else{
       // Motor Powers
@@ -88,6 +90,8 @@ public class Robot extends TimedRobot {
         this.protoSystem.setprotoMotor2(manualMotorPower);
       }else if(selectedMotor == 3){
         this.protoSystem.setprotoMotor3(manualMotorPower);
+      }else if(selectedMotor == 4){
+        this.protoSystem.setServoAnalog(manualMotorPower);
       }
     }else{
       // Motor Powers
@@ -101,5 +105,7 @@ public class Robot extends TimedRobot {
       this.protoSystem.setprotoMotor3(motor3);
       this.protoSystem.setprotoServoAngle(servoAngle);
     }
+    
+    
   }
 }
