@@ -9,34 +9,39 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.VictorSPX;
+
+import edu.wpi.first.wpilibj.Servo;
 
 public class PrototypingSubsystem {
     // Motors
     TalonSRX protoMotor1;
-    TalonSRX protoMotor2;
-    TalonSRX protoMotor3;
-    TalonSRX protoMotor4;
+    VictorSPX protoMotor2;
+    VictorSPX protoMotor3;
+    //Servo
+    Servo protoServo;
 
     public PrototypingSubsystem() {
-        protoMotor1 = new TalonSRX(0);
-        protoMotor2 = new TalonSRX(1);
-        protoMotor3 = new TalonSRX(2);
-        protoMotor4 = new TalonSRX(3);
+        this.protoMotor1 = new TalonSRX(0);
+        this.protoMotor2 = new VictorSPX(1);
+        this.protoMotor3 = new VictorSPX(2);
+        this.protoServo = new Servo(0);
     }
 
     public void setprotoMotor1(double power) {
-        protoMotor1.set(ControlMode.PercentOutput, power);
+        this.protoMotor1.set(ControlMode.PercentOutput, power);
     }
 
     public void setprotoMotor2(double power) {
-        protoMotor2.set(ControlMode.PercentOutput, power);
+        this.protoMotor2.set(ControlMode.PercentOutput, power);
     }
 
     public void setprotoMotor3(double power) {
-        protoMotor3.set(ControlMode.PercentOutput, power);
+        this.protoMotor3.set(ControlMode.PercentOutput, power);
     }
 
-    public void setprotoMotor4(double power) {
-        protoMotor4.set(ControlMode.PercentOutput, power);
+    public void setprotoServoAngle(double angle){
+        this.protoServo.setAngle(angle);
     }
+
 }
