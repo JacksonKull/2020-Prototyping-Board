@@ -24,6 +24,8 @@ public class Robot extends TimedRobot {
     SmartDashboard.putNumber("Motor2", 0);
     SmartDashboard.putNumber("Motor3", 0);
     SmartDashboard.putNumber("Servo Angle", 0);
+    SmartDashboard.putBoolean("Controller Mode", false);
+    SmartDashboard.putNumber("Manual Motor Selector", 0);
     // Motor Powers
     this.motor1 = SmartDashboard.getNumber("Motor1", 0);
     this.motor2 = SmartDashboard.getNumber("Motor2", 0);
@@ -45,16 +47,29 @@ public class Robot extends TimedRobot {
 
   @Override
   public void teleopPeriodic() {
-    // Motor Powers
-    this.motor1 = SmartDashboard.getNumber("Motor1", 0);
-    this.motor2 = SmartDashboard.getNumber("Motor2", 0);
-    this.motor3 = SmartDashboard.getNumber("Motor3", 0);
-    this.servoAngle = SmartDashboard.getNumber("Servo Angle", 0);
-    // Setting Motor Powers
-    this.protoSystem.setprotoMotor1(motor1);
-    this.protoSystem.setprotoMotor2(motor2);
-    this.protoSystem.setprotoMotor3(motor3);
-    this.protoSystem.setprotoServoAngle(servoAngle);
+
+    if(SmartDashboard.getBoolean("Controller Mode", false)){
+      int selectedMotor = (int) SmartDashboard.getNumber("Manual Motor Selector", 0);
+      double manualMotorPower = this.controller.getRightTriggerAnalog();
+      if(selectedMotor == 1){
+        this.protoSystem.setprotoMotor1(manualMotorPower);
+      }else if(selectedMotor == 2){
+        this.protoSystem.setprotoMotor2(manualMotorPower);
+      }else if(selectedMotor == 3){
+        this.protoSystem.setprotoMotor3(manualMotorPower);
+      }
+    }else{
+      // Motor Powers
+      this.motor1 = SmartDashboard.getNumber("Motor1", 0);
+      this.motor2 = SmartDashboard.getNumber("Motor2", 0);
+      this.motor3 = SmartDashboard.getNumber("Motor3", 0);
+      this.servoAngle = SmartDashboard.getNumber("Servo Angle", 0);
+      // Setting Motor Powers
+      this.protoSystem.setprotoMotor1(motor1);
+      this.protoSystem.setprotoMotor2(motor2);
+      this.protoSystem.setprotoMotor3(motor3);
+      this.protoSystem.setprotoServoAngle(servoAngle);
+    }
   }
 
   @Override
@@ -63,15 +78,28 @@ public class Robot extends TimedRobot {
 
   @Override
   public void testPeriodic() {
-    // Motor Powers
-    this.motor1 = SmartDashboard.getNumber("Motor1", 0);
-    this.motor2 = SmartDashboard.getNumber("Motor2", 0);
-    this.motor3 = SmartDashboard.getNumber("Motor3", 0);
-    this.servoAngle = SmartDashboard.getNumber("Servo Angle", 0);
-    // Setting Motor Powers
-    this.protoSystem.setprotoMotor1(motor1);
-    this.protoSystem.setprotoMotor2(motor2);
-    this.protoSystem.setprotoMotor3(motor3);
-    this.protoSystem.setprotoServoAngle(servoAngle);
+    
+    if(SmartDashboard.getBoolean("Controller Mode", false)){
+      int selectedMotor = (int) SmartDashboard.getNumber("Manual Motor Selector", 0);
+      double manualMotorPower = this.controller.getRightTriggerAnalog();
+      if(selectedMotor == 1){
+        this.protoSystem.setprotoMotor1(manualMotorPower);
+      }else if(selectedMotor == 2){
+        this.protoSystem.setprotoMotor2(manualMotorPower);
+      }else if(selectedMotor == 3){
+        this.protoSystem.setprotoMotor3(manualMotorPower);
+      }
+    }else{
+      // Motor Powers
+      this.motor1 = SmartDashboard.getNumber("Motor1", 0);
+      this.motor2 = SmartDashboard.getNumber("Motor2", 0);
+      this.motor3 = SmartDashboard.getNumber("Motor3", 0);
+      this.servoAngle = SmartDashboard.getNumber("Servo Angle", 0);
+      // Setting Motor Powers
+      this.protoSystem.setprotoMotor1(motor1);
+      this.protoSystem.setprotoMotor2(motor2);
+      this.protoSystem.setprotoMotor3(motor3);
+      this.protoSystem.setprotoServoAngle(servoAngle);
+    }
   }
 }
