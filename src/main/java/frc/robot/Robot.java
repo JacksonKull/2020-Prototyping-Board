@@ -3,26 +3,32 @@ package frc.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.PrototypingSubsystem;
+import frc.robot.subsystems.XboxController;
 
 public class Robot extends TimedRobot {
   // Subsystems
   PrototypingSubsystem protoSystem;
   // Doubles
   double motor1, motor2, motor3, motor4, servoAngle;
+  //Controllers
+  XboxController controller;
 
   @Override
   public void robotInit() {
-    protoSystem = new PrototypingSubsystem();
+    //Subsystems
+    this.protoSystem = new PrototypingSubsystem();
+    //Controllers
+    this.controller = new XboxController(0);
     // SmartDashboard Entries
     SmartDashboard.putNumber("Motor1", 0);
     SmartDashboard.putNumber("Motor2", 0);
     SmartDashboard.putNumber("Motor3", 0);
     SmartDashboard.putNumber("Servo Angle", 0);
     // Motor Powers
-    motor1 = SmartDashboard.getNumber("Motor1", 0);
-    motor2 = SmartDashboard.getNumber("Motor2", 0);
-    motor3 = SmartDashboard.getNumber("Motor3", 0);
-    servoAngle = SmartDashboard.getNumber("Servo Angle", 0);
+    this.motor1 = SmartDashboard.getNumber("Motor1", 0);
+    this.motor2 = SmartDashboard.getNumber("Motor2", 0);
+    this.motor3 = SmartDashboard.getNumber("Motor3", 0);
+    this.servoAngle = SmartDashboard.getNumber("Servo Angle", 0);
   }
 
   @Override
@@ -40,15 +46,15 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     // Motor Powers
-    motor1 = SmartDashboard.getNumber("Motor1", 0);
-    motor2 = SmartDashboard.getNumber("Motor2", 0);
-    motor3 = SmartDashboard.getNumber("Motor3", 0);
-    servoAngle = SmartDashboard.getNumber("Servo Angle", 0);
+    this.motor1 = SmartDashboard.getNumber("Motor1", 0);
+    this.motor2 = SmartDashboard.getNumber("Motor2", 0);
+    this.motor3 = SmartDashboard.getNumber("Motor3", 0);
+    this.servoAngle = SmartDashboard.getNumber("Servo Angle", 0);
     // Setting Motor Powers
-    protoSystem.setprotoMotor1(motor1);
-    protoSystem.setprotoMotor2(motor2);
-    protoSystem.setprotoMotor3(motor3);
-    protoSystem.setprotoServoAngle(servoAngle);
+    this.protoSystem.setprotoMotor1(motor1);
+    this.protoSystem.setprotoMotor2(motor2);
+    this.protoSystem.setprotoMotor3(motor3);
+    this.protoSystem.setprotoServoAngle(servoAngle);
   }
 
   @Override
@@ -58,14 +64,14 @@ public class Robot extends TimedRobot {
   @Override
   public void testPeriodic() {
     // Motor Powers
-    motor1 = SmartDashboard.getNumber("Motor1", 0);
-    motor2 = SmartDashboard.getNumber("Motor2", 0);
-    motor3 = SmartDashboard.getNumber("Motor3", 0);
-    servoAngle = SmartDashboard.getNumber("Servo Angle", 0);
+    this.motor1 = SmartDashboard.getNumber("Motor1", 0);
+    this.motor2 = SmartDashboard.getNumber("Motor2", 0);
+    this.motor3 = SmartDashboard.getNumber("Motor3", 0);
+    this.servoAngle = SmartDashboard.getNumber("Servo Angle", 0);
     // Setting Motor Powers
-    protoSystem.setprotoMotor1(motor1);
-    protoSystem.setprotoMotor2(motor2);
-    protoSystem.setprotoMotor3(motor3);
-    protoSystem.setprotoServoAngle(servoAngle);
+    this.protoSystem.setprotoMotor1(motor1);
+    this.protoSystem.setprotoMotor2(motor2);
+    this.protoSystem.setprotoMotor3(motor3);
+    this.protoSystem.setprotoServoAngle(servoAngle);
   }
 }
